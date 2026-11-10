@@ -1,6 +1,6 @@
-"""Run output (spec §12): ten markdown reports under `reports/` plus `decision.json`.
+"""Run output: ten markdown reports under `reports/` plus `decision.json`.
 
-`final_trade_decision.md` is rendered from the PM's structured `Decision` (spec §9)."""
+`final_trade_decision.md` is rendered from the PM's structured `Decision`."""
 
 from __future__ import annotations
 
@@ -46,7 +46,8 @@ def run_dir(data_dir: Path, b: DataBundle) -> Path:
 
 
 def default_analysis_date(now: datetime | None = None, cal: TradingCalendar | None = None) -> date:
-    """The date a run without an explicit date would analyse (spec §4 기본 날짜)."""
+    """The calendar default date of a dateless run: today after 18:00 KST on a session,
+    else the previous session (before the KRX publication check)."""
     return resolve_date(None, now or datetime.now(KST), cal or TradingCalendar()).date
 
 

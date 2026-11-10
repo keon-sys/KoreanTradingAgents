@@ -1,7 +1,7 @@
 """Entry point: `krta --ticker <code> --horizon <Nd|Nw|Nm|Ny> [--date YYYY-MM-DD]`.
 
 stdout carries exactly one line, `REPORT_DIR=<run_dir>/reports`, printed last on success
-(the deployment wrapper parses it). Everything else goes to stderr, redacted.
+(a wrapper script can parse it). Everything else goes to stderr, redacted.
 Exit codes: 0 ok, 2 input error, 3 key problem, 1 anything else.
 """
 
@@ -75,7 +75,7 @@ class NotPublishedError(Exception):
 def _key(env: Mapping[str, str], name: str) -> str:
     value = env.get(name, "").strip()
     if not value:
-        raise MissingKeyError(f"환경변수 {name}가 비어 있음(Secret에 직접 추가 필요)")
+        raise MissingKeyError(f"환경변수 {name}가 비어 있음")
     return value
 
 
@@ -102,7 +102,6 @@ def default_sources(
         HttpClient(redactor, toollog, min_interval=toss.MIN_INTERVAL), redactor,
         env.get("TOSS_CLIENT_ID"), env.get("TOSS_CLIENT_SECRET"),
     )
-    # KRX portal: plaintext login is refused (spec §17), so it is not built.
     return Sources(
         krx=krx, dart=dart, news=GoogleNews(http), history=yahoo.history, cal=cal, toss=toss_api,
     )
@@ -120,7 +119,7 @@ class _RedactingLines:
     """Line-buffered text sink: redacts each line and defuses result-line lookalikes.
 
     Stands in for stdout and stderr while the run executes, so a library print can neither
-    leak a secret nor fake the `REPORT_DIR=` line (Job logs merge both streams)."""
+    leak a secret nor fake the `REPORT_DIR=` line (container logs often merge both streams)."""
 
     def __init__(self, target: TextIO, redactor: Redactor):
         self._target = target

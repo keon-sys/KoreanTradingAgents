@@ -1,4 +1,4 @@
-"""The six Korean-market analysts (spec §6): one LLM call each over a precomputed section."""
+"""The six Korean-market analysts: one LLM call each over a precomputed section."""
 
 from __future__ import annotations
 
@@ -17,7 +17,7 @@ class AnalystSpec:
     checklist: list[str]
 
 
-# Checklists are spec §6 items verbatim; builder notes ([빌더] ...) are left out.
+# Per analyst: Korean title, report file name and the checklist its system prompt lists.
 ANALYSTS: dict[str, AnalystSpec] = {
     "market": AnalystSpec(
         "시장·지수 분석가",

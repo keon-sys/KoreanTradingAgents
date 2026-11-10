@@ -7,7 +7,6 @@ from urllib.parse import urlsplit
 import pytest
 
 from krta.data import toss
-from krta.data.krx_portal import FLOW_KEYS as PORTAL_FLOW_KEYS
 from krta.data.toss import (
     BASE_URL,
     FLOW_KEYS,
@@ -354,7 +353,6 @@ def test_module_never_mentions_order_or_account_paths_outside_docs():
 def test_investor_flow_normalized_shares_with_none_for_missing():
     api, session = make(token_ok(), data("investor_trading.json"))
     rows = api.investor_flow("005930", D0, D1)
-    assert FLOW_KEYS == PORTAL_FLOW_KEYS
     assert [r["date"] for r in rows] == [date(2026, 11, 4), date(2026, 11, 5), date(2026, 11, 6)]
     assert all(list(r) == list(FLOW_KEYS) for r in rows)
     assert rows[0] == {

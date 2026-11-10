@@ -1,4 +1,4 @@
-"""Risk debate (spec §9): aggressive -> conservative -> neutral, `risk_rounds` times."""
+"""Risk debate: aggressive -> conservative -> neutral, `risk_rounds` times."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""LangGraph flow (spec §5): six analysts in parallel -> bull/bear debate -> research manager
+"""LangGraph flow: six analysts in parallel -> bull/bear debate -> research manager
 -> trader -> risk debate -> portfolio manager. Memory scoring stays outside the graph."""
 
 from __future__ import annotations

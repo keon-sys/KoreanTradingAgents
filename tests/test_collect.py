@@ -146,13 +146,6 @@ class FailingToss:
     program_trading = credit_balance = securities_lending = _fail
 
 
-class ExplodingPortal:
-    """KrxPortal must not be called any more (spec §17)."""
-
-    def __getattr__(self, name):
-        raise AssertionError(f"KrxPortal.{name} called")
-
-
 def _filing(dt, name, rcept_no=None):
     return {
         "rcept_dt": dt, "report_nm": name, "rcept_no": rcept_no or f"{dt}000001",
@@ -280,7 +273,7 @@ class FakeHistory:
 
 def sources(**over):
     s = {
-        "krx": FakeKrx(), "toss": FakeToss(), "portal": ExplodingPortal(), "dart": FakeDart(),
+        "krx": FakeKrx(), "toss": FakeToss(), "dart": FakeDart(),
         "news": FakeNews(),
         "history": FakeHistory(), "cal": CAL,
     }
@@ -371,11 +364,6 @@ def test_provisional_none_values_are_blank_not_zero(tmp_path):
     daily = [ln for ln in part.splitlines() if ln.startswith("| 2026-11-06 |")]
     assert daily and daily[-1].endswith("|  |  |  |  |  |  |  |  |  |")
     assert "None" not in part
-
-
-def test_portal_never_called_when_toss_present(tmp_path):
-    b, _ = run(tmp_path)  # sources() wires ExplodingPortal
-    assert "데이터 없음: 투자자별 순매수" not in b.sections["flow"].text
 
 
 def test_dart_key_error_aborts(tmp_path):

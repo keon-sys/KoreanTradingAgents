@@ -351,7 +351,7 @@ def test_stdout_cannot_be_spoofed_by_library_prints(env, capsys, monkeypatch):
 
 def test_e2e_secrets_never_in_outputs(env, capsys, monkeypatch):
     monkeypatch.setenv("DART_API_KEY", DART_SECRET)
-    monkeypatch.setenv("KRX_PW", PW_SECRET)
+    monkeypatch.setenv("TOSS_CLIENT_SECRET", PW_SECRET)
     url = f"https://opendart.fss.or.kr/api/company.json?crtfc_key={DART_SECRET}"
 
     class LeakyDart(FakeDart):
@@ -533,7 +533,6 @@ def test_default_sources_wiring(env, monkeypatch):
     assert src.toss._redactor is red and src.toss._http._redactor is red
     assert src.toss._http._toollog is log
     assert src.toss.available()
-    assert src.portal is None
     assert src.krx._unconfirmed_date == NOW.date()
     assert src.cal is CAL
     monkeypatch.delenv("TOSS_CLIENT_SECRET")

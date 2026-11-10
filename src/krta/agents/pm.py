@@ -1,4 +1,4 @@
-"""Portfolio manager (spec §9): the final structured decision."""
+"""Portfolio manager: the final structured decision."""
 
 from __future__ import annotations
 

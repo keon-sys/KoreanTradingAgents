@@ -83,7 +83,7 @@ class HttpClient:
         max_retries: int | None = None,
     ) -> requests.Response:
         """`max_retries` overrides the client default for this call (None = default);
-        pass 0 for requests that must never be resent, e.g. a login carrying credentials."""
+        pass 0 for requests that must never be resent, e.g. one carrying credentials."""
         return self._request(
             "POST", url, source=source, data=data, headers=headers, log_body=log_body,
             follow=follow_same_host_redirects, max_retries=max_retries,

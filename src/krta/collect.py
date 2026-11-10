@@ -1,9 +1,9 @@
 """Data bundle collection: every data source -> six analyst sections + event calendar.
 
 All numbers in the sections are computed here; the analysts only read them. Any
-`FetchError`, `TossUnavailable`, `PortalUnavailable` or `KrxAuthError` turns the affected
-item into a `missing_line` and collection continues. Two failures abort the whole run: the
-listing lookup that fixes the target (no target, nothing to analyse) and `DartKeyError`.
+`FetchError`, `TossUnavailable` or `KrxAuthError` turns the affected item into a
+`missing_line` and collection continues. Two failures abort the whole run: the listing
+lookup that fixes the target (no target, nothing to analyse) and `DartKeyError`.
 
 Collection is sequential on purpose: `HttpClient`'s min-interval state is not
 thread-safe.
@@ -22,7 +22,6 @@ import pandas as pd
 
 from krta.data.dart import Dart
 from krta.data.krx_openapi import KrxAuthError, KrxOpenApi, to_float, to_int
-from krta.data.krx_portal import KrxPortal, PortalUnavailable
 from krta.data.news import GoogleNews, NewsItem
 from krta.data.toss import FLOW_KEYS, TossApi, TossUnavailable
 from krta.data.yahoo import MACRO_SYMBOLS
@@ -47,7 +46,7 @@ PEER_NOTE = "동료 종목은 LLM 추정 후 상장 목록으로 검증"
 CRITICAL_HEADER = "치명적 공시 후보:"
 UNADJUSTED_NOTE = "수정주가 아님: 액면분할·병합 등은 가격 공백(급등락)으로 보인다"
 
-# Look-back windows [계획 결정].
+# Look-back windows.
 HISTORY_DAYS = 400  # trading rows of the stock's daily bars
 CROSS_SECTION_DAYS = 20  # trading-value rank / theme concentration
 FLOW_DAYS = {"단기": 60, "중기": 60, "장기": 250}  # investor flow, shorting, foreign holding, ...
@@ -63,7 +62,7 @@ SHOWN_ROWS = 20
 US_SYMBOLS = frozenset({"^GSPC", "^IXIC", "^SOX"})
 MARKET_INDEX = {"KS": "^KS11", "KQ": "^KQ11"}
 MARKET_NAME = {"KS": "코스피", "KQ": "코스닥"}
-# Market-wide news for the market analyst (spec §6.1: index-wide policy, memory cycle).
+# Market-wide news for the market analyst: index-wide policy and the memory-chip cycle.
 MARKET_NEWS_QUERIES = {
     "지수 정책·규제": "증시 공매도 OR 밸류업 OR 금리 OR 세제",
     "메모리 반도체 가격": "메모리 반도체 가격",
@@ -81,7 +80,7 @@ CRITICAL_KEYWORDS: tuple[tuple[str, tuple[str, ...]], ...] = (
 
 SOURCE_KRX = "krx_openapi"
 
-_SOFT_ERRORS = (FetchError, TossUnavailable, PortalUnavailable, KrxAuthError)
+_SOFT_ERRORS = (FetchError, TossUnavailable, KrxAuthError)
 NO_TOSS = "토스증권 API 키 없음(TOSS_CLIENT_ID, TOSS_CLIENT_SECRET)"
 
 Market = Literal["KS", "KQ"]
@@ -118,8 +117,6 @@ class Sources:
       lending) gets its OWN `HttpClient(..., min_interval=krta.data.toss.MIN_INTERVAL)`
       and the SAME `Redactor` as the `ToolLog`: TossApi registers its access token with
       that redactor at run time. None (or no keys) -> those items become missing lines.
-    - `portal` (KrxPortal) is kept for compatibility but no longer called: plaintext
-      login is refused (spec §17). Leave it None.
     - On an unconfirmed run, build `KrxOpenApi(..., unconfirmed_date=<analysis date>)` so
       the still-changing day is not cached.
     - `history(symbol, end, days)` is `krta.data.yahoo.history`: `days` counts trading
@@ -132,7 +129,6 @@ class Sources:
     history: Callable[[str, date, int], pd.DataFrame]
     cal: TradingCalendar
     toss: TossApi | None = None
-    portal: KrxPortal | None = None
 
 
 def collect(
@@ -156,7 +152,7 @@ class _Unavailable(Exception):
 def _reason(exc: Exception) -> str:
     if isinstance(exc, FetchError):
         return exc.message
-    if isinstance(exc, (TossUnavailable, PortalUnavailable)):
+    if isinstance(exc, TossUnavailable):
         return exc.reason
     return str(exc)
 

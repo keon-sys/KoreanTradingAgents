@@ -128,15 +128,15 @@ def test_all_six_specs_defined():
     assert all(a.title_ko for a in ANALYSTS.values())
 
 
-def test_checklists_follow_spec_items():
+def test_checklists_cover_key_items():
     assert any("한도 소진율" in i for i in ANALYSTS["flow"].checklist)
     assert any("정정공시" in i for i in ANALYSTS["disclosure"].checklist)
     assert any("가치 함정" in i for i in ANALYSTS["fundamentals"].checklist)
     assert any("±30%" in i for i in ANALYSTS["technical"].checklist)
     assert any("대장주" in i for i in ANALYSTS["theme"].checklist)
     assert any("상대 강도" in i for i in ANALYSTS["market"].checklist)
-    # Builder notes ([빌더] ...) are implementation notes, not checklist items.
-    assert not any("[빌더" in i for a in ANALYSTS.values() for i in a.checklist)
+    # Checklist items are plain analyst instructions, without bracketed annotations.
+    assert not any(i.lstrip().startswith("[") for a in ANALYSTS.values() for i in a.checklist)
 
 
 def test_every_checklist_item_reaches_system_prompt():
@@ -170,7 +170,7 @@ def test_weights_table_highlights_bucket_row(bucket):
     assert len(marked) == 1 and f"**{bucket}**" in marked[0]
 
 
-def test_weights_table_spec_values():
+def test_weights_table_values():
     t = weights_table("단기")
     assert "수급, 테마·재료, 차트·거래량, 시장" in t
     assert "공시(악재 필터), 밸류(참고)" in t

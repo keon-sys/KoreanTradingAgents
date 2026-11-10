@@ -1,8 +1,8 @@
-"""Decision memory (spec §10): record each final decision, score it once its horizon has
+"""Decision memory: record each final decision, score it once its horizon has
 passed, and feed scored results of the same stock back as short lessons.
 
 Storage: one JSON object per line in `<data_dir>/memory-kr/decisions.jsonl` on the data
-volume, shared by every Job. Only decision fields are stored (no keys, no prompts).
+volume, shared by every run. Only decision fields are stored (no keys, no prompts).
 Writers take an exclusive `flock` on a sibling lock file; rewrites go through
 write-then-rename, and readers skip any line that does not parse."""
 

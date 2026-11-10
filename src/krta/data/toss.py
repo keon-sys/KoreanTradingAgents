@@ -35,11 +35,11 @@ Protocol (per the documents above):
 Endpoints and normalized rows (every method returns rows oldest first, start..end
 inclusive; a value Toss does not provide is None, never 0):
 - investor_flow: GET /api/v1/stocks/{symbol}/investor-trading.
-  Keys FLOW_KEYS (same as KrxPortal.investor_flow), values are net-buy VOLUMES in shares
-  (주) = buy - sell. Toss has no amount (원) axis for single stocks. 외국인 is
-  registered foreigners only (등록외국인; Toss excludes unregistered ones). On the
-  still-open day Toss gives provisional 외국인/기관합계 only, so 개인, 기타법인 and the
-  seven institution sub-groups are None there.
+  Keys FLOW_KEYS, values are net-buy VOLUMES in shares (주) = buy - sell. Toss has no
+  amount (원) axis for single stocks. 외국인 is registered foreigners only (등록외국인;
+  Toss excludes unregistered ones). On the still-open day Toss gives provisional
+  외국인/기관합계 only, so 개인, 기타법인 and the seven institution sub-groups are None
+  there.
 - foreign_holding (same endpoint, fetched once): 외국인보유수량 (주), 외국인지분율 (%,
   of listed shares), 한도소진율 (%, = 보유수량 / 한도수량 x 100, computed here);
   all None until Toss publishes the day (evening, re-confirmed next morning).
@@ -49,8 +49,8 @@ inclusive; a value Toss does not provide is None, never 0):
 - shorting: GET /api/v1/stocks/{symbol}/short-selling. 공매도거래량 (주),
   공매도거래대금 (원), 공매도거래량비중 / 공매도거래대금비중 (% of the day's total incl.
   off-hours sessions; None when Toss lacks the denominator). 공매도잔고수량 /
-  공매도잔고금액 are kept for KrxPortal.shorting compatibility and are always None (Toss
-  publishes no short-sale balance).
+  공매도잔고금액 are always None (Toss publishes no short-sale balance); the keys stay so
+  the collector can report the balance as missing.
 - program_trading: GET /api/v1/stocks/{symbol}/program-trades (KRX only, no NXT).
   차익매수, 차익매도, 차익순매수, 비차익매수, 비차익매도, 비차익순매수 (주).
 - credit_balance: GET /api/v1/stocks/{symbol}/credit-trades (published T+1 early
@@ -75,7 +75,6 @@ from decimal import Decimal, InvalidOperation
 from typing import Any, Literal
 from urllib.parse import urlsplit, urlunsplit
 
-from krta.data.krx_portal import FLOW_KEYS
 from krta.net import FetchError, HttpClient
 from krta.redact import Redactor
 
@@ -115,6 +114,12 @@ _ALLOWED: tuple[tuple[str, re.Pattern[str]], ...] = (
 _FORBIDDEN_HEADER = "x-tossinvest-account"
 # urlsplit silently drops \t\r\n, so the checked URL could differ from the sent one.
 _CONTROL_OR_SPACE = re.compile(r"[\x00-\x20\x7f]")
+
+# Row keys of investor_flow / investor_flow_market, in order.
+FLOW_KEYS = (
+    "date", "외국인", "기관합계", "금융투자", "보험", "투신", "사모", "은행",
+    "기타금융", "연기금", "기타법인", "개인",
+)
 
 Market = Literal["KS", "KQ"]
 _MARKET_SYMBOL = {"KS": "KOSPI", "KQ": "KOSDAQ"}

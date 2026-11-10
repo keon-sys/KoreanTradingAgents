@@ -1,4 +1,4 @@
-"""Trader (spec §9): entry, scaling and stop plan -> `trader_investment_plan.md`."""
+"""Trader: entry, scaling and stop plan -> `trader_investment_plan.md`."""
 
 from __future__ import annotations
 

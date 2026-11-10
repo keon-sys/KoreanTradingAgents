@@ -12,8 +12,8 @@ from krta.config import Settings
 from krta.toollog import ToolLog
 
 LOG_PROMPT_CHARS = 2000
-# Seconds per Anthropic request. Without it a stalled connection hangs until the Job's
-# activeDeadlineSeconds kills the whole run.
+# Seconds per Anthropic request. Without it a stalled connection hangs the whole run
+# until something outside kills it.
 REQUEST_TIMEOUT = 300.0
 
 

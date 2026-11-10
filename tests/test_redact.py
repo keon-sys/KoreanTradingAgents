@@ -7,7 +7,7 @@ from krta.redact import Redactor
 
 
 def test_redacts_env_secret_values():
-    r = Redactor.from_env({"DART_API_KEY": "abcd1234", "KRX_PW": "pw-9999", "HOME": "/home/x"})
+    r = Redactor.from_env({"DART_API_KEY": "abcd1234", "DB_PW": "pw-9999", "HOME": "/home/x"})
     out = r.redact("key=abcd1234 pw=pw-9999 home=/home/x")
     assert "abcd1234" not in out and "pw-9999" not in out and "/home/x" in out
 
@@ -19,7 +19,7 @@ def test_redacts_url_key_params_even_if_unknown():
 
 
 def test_short_values_not_treated_as_secret():
-    r = Redactor.from_env({"KRX_ID": "ab"})
+    r = Redactor.from_env({"TOSS_CLIENT_ID": "ab"})
     assert r.redact("ab cd") == "ab cd"
 
 
@@ -46,7 +46,7 @@ def test_env_name_pattern():
     env = {
         "ANTHROPIC_API_KEY": "dummy-anthropic",
         "KRX_API_KEY": "dummy-krx",
-        "KRX_ID": "dummy-id",
+        "TOSS_CLIENT_ID": "dummy-id",
         "SOME_TOKEN": "dummy-token",
         "DB_PASSWORD": "dummy-password",
         "MY_SECRET": "dummy-secret",
@@ -54,7 +54,7 @@ def test_env_name_pattern():
         "KEYBOARD": "us-layout",
     }
     out = Redactor.from_env(env).redact(" ".join(env.values()))
-    for name in ("ANTHROPIC_API_KEY", "KRX_API_KEY", "KRX_ID", "SOME_TOKEN", "DB_PASSWORD", "MY_SECRET"):
+    for name in ("ANTHROPIC_API_KEY", "KRX_API_KEY", "TOSS_CLIENT_ID", "SOME_TOKEN", "DB_PASSWORD", "MY_SECRET"):
         assert env[name] not in out
     assert "/usr/bin" in out and "us-layout" in out
 

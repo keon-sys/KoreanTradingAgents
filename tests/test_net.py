@@ -127,9 +127,9 @@ def test_post_body_logged_when_enabled(tmp_path):
 def test_post_body_not_logged_when_disabled(tmp_path):
     log = tmp_path / "message_tool.log"
     client, _, _ = make_client([200], toollog=ToolLog(log, Redactor([])))
-    client.post("https://x/login", data={"pw": "PWVALUE"}, source="krx_portal", log_body=False)
+    client.post("https://x/login", data={"pw": "PWVALUE"}, source="login", log_body=False)
     text = log.read_text(encoding="utf-8")
-    assert "PWVALUE" not in text and "[request] krx_portal" in text
+    assert "PWVALUE" not in text and "[request] login" in text
 
 
 def test_min_interval_between_same_source_requests():
@@ -195,7 +195,7 @@ def test_same_host_https_redirect_followed_and_logged(tmp_path):
         [redirect(302, "/b?api_key=QSECRET77"), 200], toollog=ToolLog(log, Redactor([]))
     )
     resp = client.post(
-        "https://x/login", data={"pw": "PWVALUE"}, headers={"H": "v"}, source="krx_portal",
+        "https://x/login", data={"pw": "PWVALUE"}, headers={"H": "v"}, source="login",
         log_body=False, follow_same_host_redirects=True,
     )
     assert resp.status_code == 200

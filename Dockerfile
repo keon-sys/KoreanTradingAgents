@@ -38,7 +38,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     HOME=/home/appuser \
     KRTA_DATA_DIR=/home/appuser/.krta
 
-# uid/gid 1000 = 실행 환경의 runAsUser/runAsGroup. 데이터 볼륨도 이 uid가 쓸 수 있어야 한다.
+# uid/gid 1000으로 실행한다. 데이터 볼륨도 이 uid가 쓸 수 있어야 한다.
 # 루트 파일시스템을 읽기 전용으로 돌릴 수 있다. 쓰기는 /tmp, ~/.cache, ~/.krta(데이터 볼륨)만.
 RUN groupadd --gid 1000 appuser \
  && useradd --uid 1000 --gid 1000 --create-home --shell /usr/sbin/nologin appuser \

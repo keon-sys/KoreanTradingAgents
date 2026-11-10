@@ -112,7 +112,7 @@ def _yfinance_fetch(symbol: str, start: date, end: date) -> pd.DataFrame:
 def _prepare_yfinance(yf_cache) -> None:
     """Point yfinance's sqlite caches (tz, cookie, ISIN) at a fresh temp dir and mute it.
 
-    The Job runs with a read-only root filesystem; the default location may not be
+    The container may run with a read-only root filesystem; the default location may not be
     writable, and nothing from yfinance should persist between runs. Must happen before
     yfinance touches its cache, hence once, under a lock.
     """

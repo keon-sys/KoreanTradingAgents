@@ -1,4 +1,4 @@
-"""Bull/bear researchers and the research manager (spec §9), plus prompt pieces every
+"""Bull/bear researchers and the research manager, plus prompt pieces every
 post-analyst stage shares."""
 
 from __future__ import annotations

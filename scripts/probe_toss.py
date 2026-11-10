@@ -1,14 +1,17 @@
-"""Cluster check for krta.data.toss: issues one token with TOSS_CLIENT_ID/TOSS_CLIENT_SECRET
-from env and fetches 삼성전자(005930) and the KOSPI/KOSDAQ market flows for the last 5
-trading days of every method.
+"""Connectivity check for krta.data.toss, run in the environment that will run krta (its
+public IP must be on the Toss allow list): issues one token with TOSS_CLIENT_ID /
+TOSS_CLIENT_SECRET from env and fetches 삼성전자(005930) and the KOSPI/KOSDAQ market flows
+for the last 5 trading days of every method.
 
 Prints ONLY row counts, key lists (normalized keys and the raw field names Toss sent),
 None counts per key, the latest row date and redacted reasons: never credentials, the
 token, headers or market values. Stops at the first auth/IP failure (401/403) instead of
-retrying. Always exits 0 so the Pod reaches Succeeded.
+retrying. Always exits 0; read the output, not the exit code.
 
 Note: issuing a token revokes any other token for the same client (one valid token per
-client).
+client), so do not run it while krta is running with the same keys.
+
+Usage: `uv run python scripts/probe_toss.py`
 """
 
 from __future__ import annotations
