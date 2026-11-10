@@ -1,0 +1,14 @@
+# 키·비밀은 빌드 컨텍스트에 절대 넣지 않는다.
+.env*
+*.secret
+secrets/
+*.pem
+*.key
+# 이미지에 필요 없는 것
+.git
+.venv
+tests/
+__pycache__/
+.pytest_cache/
+.claude/
+.superpowers/

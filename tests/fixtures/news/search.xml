@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+<channel>
+<title>"삼성전자 when:14d" - Google 뉴스</title>
+<language>ko</language>
+<item>
+<title>삼성전자, HBM4 공급 확대 - 한국경제</title>
+<link>https://news.google.com/rss/articles/AAA1?oc=5</link>
+<guid isPermaLink="false">AAA1</guid>
+<pubDate>Mon, 09 Nov 2026 01:00:00 GMT</pubDate>
+<source url="https://www.hankyung.com">한국경제</source>
+</item>
+<item>
+<title>삼성전자, HBM4 공급 확대 - 매일경제</title>
+<link>https://news.google.com/rss/articles/AAA2?oc=5</link>
+<guid isPermaLink="false">AAA2</guid>
+<pubDate>Sun, 08 Nov 2026 23:00:00 GMT</pubDate>
+<source url="https://www.mk.co.kr">매일경제</source>
+</item>
+<item>
+<title>삼성전자 3분기 실적 발표 - 연합뉴스</title>
+<link>https://news.google.com/rss/articles/BBB1?oc=5</link>
+<guid isPermaLink="false">BBB1</guid>
+<pubDate>Mon, 09 Nov 2026 15:30:00 GMT</pubDate>
+<source url="https://www.yna.co.kr">연합뉴스</source>
+</item>
+<item>
+<title>삼성전자 신고가 경신 - 조선비즈</title>
+<link>https://news.google.com/rss/articles/CCC1?oc=5</link>
+<guid isPermaLink="false">CCC1</guid>
+<pubDate>Wed, 11 Nov 2026 00:30:00 GMT</pubDate>
+<source url="https://biz.chosun.com">조선비즈</source>
+</item>
+<item>
+<title>날짜 없는 기사 - 어딘가</title>
+<link>https://news.google.com/rss/articles/DDD1?oc=5</link>
+<source url="https://example.com">어딘가</source>
+</item>
+</channel>
+</rss>

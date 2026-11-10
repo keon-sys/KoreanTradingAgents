@@ -1,0 +1,46 @@
+{
+ "result": {
+  "nextUntil": null,
+  "records": [
+   {
+    "date": "2026-11-06",
+    "arbitrage": {
+     "buyVolume": "152300",
+     "sellVolume": "183400",
+     "netBuyVolume": "-31100"
+    },
+    "nonArbitrage": {
+     "buyVolume": "1210500",
+     "sellVolume": "1105200",
+     "netBuyVolume": "105300"
+    }
+   },
+   {
+    "date": "2026-11-05",
+    "arbitrage": {
+     "buyVolume": "98700",
+     "sellVolume": "120400",
+     "netBuyVolume": "-21700"
+    },
+    "nonArbitrage": {
+     "buyVolume": "1350200",
+     "sellVolume": "1298400",
+     "netBuyVolume": "51800"
+    }
+   },
+   {
+    "date": "2026-11-04",
+    "arbitrage": {
+     "buyVolume": "50000",
+     "sellVolume": "50000",
+     "netBuyVolume": "0"
+    },
+    "nonArbitrage": {
+     "buyVolume": "900000",
+     "sellVolume": "1000000",
+     "netBuyVolume": "-100000"
+    }
+   }
+  ]
+ }
+}

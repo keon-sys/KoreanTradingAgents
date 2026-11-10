@@ -1,0 +1,31 @@
+{
+ "result": {
+  "nextUntil": null,
+  "records": [
+   {
+    "date": "2026-11-06",
+    "updatedAt": "2026-11-06T17:25:43+09:00",
+    "shortSellingVolume": "512300",
+    "shortSellingAmount": "41250000000",
+    "shortSellingVolumeRate": "0.03215",
+    "shortSellingAmountRate": "0.0318"
+   },
+   {
+    "date": "2026-11-05",
+    "updatedAt": "2026-11-05T17:26:02+09:00",
+    "shortSellingVolume": "423100",
+    "shortSellingAmount": "33980000000",
+    "shortSellingVolumeRate": null,
+    "shortSellingAmountRate": null
+   },
+   {
+    "date": "2026-11-04",
+    "updatedAt": "2026-11-04T17:26:02+09:00",
+    "shortSellingVolume": "0",
+    "shortSellingAmount": "0",
+    "shortSellingVolumeRate": "0",
+    "shortSellingAmountRate": "0"
+   }
+  ]
+ }
+}

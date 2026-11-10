@@ -1,0 +1,15 @@
+{
+  "status": "000",
+  "message": "정상",
+  "list": [
+    {"rcept_no": "20261015000555", "corp_cls": "K", "corp_code": "00258801", "corp_name": "카카오",
+     "bd_tm": "5", "bd_knd": "무기명식 무보증 사모 전환사채", "bd_fta": "100,000,000,000",
+     "fdpp_op": "100,000,000,000", "bd_intr_ex": "0.0", "bd_intr_sf": "2.0", "bd_mtd": "2031년 10월 20일",
+     "cv_rt": "100", "cv_prc": "52,300", "cvisstk_knd": "기명식 보통주", "cvisstk_cnt": "1,912,045",
+     "cvisstk_tisstk_vs": "0.43", "cvrqpd_bgd": "2027년 10월 20일", "cvrqpd_edd": "2031년 09월 20일",
+     "act_mktprcfl_cvprc_lwtrsprc": "41,840", "bddd": "2026년 10월 15일"},
+    {"rcept_no": "20261110000666", "corp_cls": "K", "corp_code": "00258801", "corp_name": "카카오",
+     "bd_tm": "6", "bd_knd": "무기명식 무보증 공모 전환사채", "bd_fta": "50,000,000,000",
+     "cv_prc": "53,000", "bddd": "2026년 11월 10일"}
+  ]
+}

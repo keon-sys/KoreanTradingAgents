@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+<title>Google 뉴스</title>
+<item>
+<title>삼성전자, HBM4 공급 확대 - 한국경제</title>
+<link>https://news.google.com/rss/articles/AAA1?oc=5</link>
+<pubDate>Mon, 09 Nov 2026 01:00:00 GMT</pubDate>
+<source url="https://www.hankyung.com">한국경제</source>
+</item>
+<item>
+<title>삼성전자, HBM4 공급 확대 - 한국경제</title>
+<link>https://news.google.com/rss/articles/AAA2?oc=5</link>
+<pubDate>Sun, 08 Nov 2026 23:00:00 GMT</pubDate>
+<source url="https://www.hankyung.com">한국경제</source>
+</item>
+<item>
+<title>삼성전자 신고가 경신 - 조선비즈</title>
+<link>https://news.google.com/rss/articles/CCC1?oc=5</link>
+<pubDate>Wed, 11 Nov 2026 00:30:00 GMT</pubDate>
+<source url="https://biz.chosun.com">조선비즈</source>
+</item>
+</channel>
+</rss>

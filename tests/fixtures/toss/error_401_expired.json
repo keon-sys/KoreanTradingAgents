@@ -1,0 +1,7 @@
+{
+ "error": {
+  "requestId": "01HXYZDUMMY",
+  "code": "expired-token",
+  "message": "액세스 토큰이 만료되었습니다."
+ }
+}

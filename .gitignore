@@ -1,0 +1,51 @@
+# --- 비밀값: 절대 커밋하지 않는다 ---
+.env
+.env.*
+!.env.example
+*.secret
+secrets/
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*
+kubeconfig*
+*.kubeconfig
+
+# --- 배포·운영 설정(별도 비공개 저장소에서 관리) ---
+/deploy/
+IMAGE
+*.bundle
+
+# --- 내부 작업 문서·에이전트 작업 공간 ---
+docs/superpowers/
+.claude/
+.superpowers/
+
+# --- 실행 결과·데이터(분석 리포트, 로그, 캐시) ---
+/data/
+logs-kr/
+cache-kr/
+memory-kr/
+tmp-kr/
+message_tool.log
+*.log
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+/build/
+/dist/
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# --- 편집기·OS ---
+.vscode/
+.idea/
+*.swp
+.DS_Store

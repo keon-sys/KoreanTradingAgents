@@ -1,0 +1,7 @@
+{
+ "error": {
+  "requestId": "01HXYZDUMMY",
+  "code": "ip-not-allowed",
+  "message": "허용되지 않은 IP 주소입니다."
+ }
+}

@@ -1,0 +1,5 @@
+{
+ "_comment": "getJsonData.cmd without a logged-in session (observed 2026-11-10): HTTP 400, text/html, body LOGOUT",
+ "status": 400,
+ "body": "LOGOUT"
+}

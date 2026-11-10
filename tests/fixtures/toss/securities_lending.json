@@ -1,0 +1,23 @@
+{
+ "result": {
+  "nextUntil": null,
+  "records": [
+   {
+    "date": "2026-11-06",
+    "updatedAt": "2026-11-06T19:03:21+09:00",
+    "executionQuantity": "210500",
+    "repaymentQuantity": "185300",
+    "balanceQuantity": "15234000",
+    "balanceAmount": "1218720000000"
+   },
+   {
+    "date": "2026-11-05",
+    "updatedAt": "2026-11-05T19:02:45+09:00",
+    "executionQuantity": "198200",
+    "repaymentQuantity": "201400",
+    "balanceQuantity": "15208800",
+    "balanceAmount": "1216704000000"
+   }
+  ]
+ }
+}

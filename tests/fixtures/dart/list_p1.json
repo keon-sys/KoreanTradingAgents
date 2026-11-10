@@ -1,0 +1,19 @@
+{
+  "status": "000",
+  "message": "정상",
+  "page_no": 1,
+  "page_count": 100,
+  "total_count": 5,
+  "total_page": 2,
+  "list": [
+    {"corp_cls": "Y", "corp_name": "삼성전자", "corp_code": "00126380", "stock_code": "005930",
+     "report_nm": "주요사항보고서(자기주식취득결정)", "rcept_no": "20261109000123", "flr_nm": "삼성전자",
+     "rcept_dt": "20261109", "rm": "유"},
+    {"corp_cls": "Y", "corp_name": "삼성전자", "corp_code": "00126380", "stock_code": "005930",
+     "report_nm": "분기보고서 (2026.09)", "rcept_no": "20261105000456", "flr_nm": "삼성전자",
+     "rcept_dt": "20261105", "rm": ""},
+    {"corp_cls": "Y", "corp_name": "삼성전자", "corp_code": "00126380", "stock_code": "005930",
+     "report_nm": "주식소각결정", "rcept_no": "20261020800111", "flr_nm": "삼성전자",
+     "rcept_dt": "20261020", "rm": "유"}
+  ]
+}

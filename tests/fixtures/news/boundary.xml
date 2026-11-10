@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+<item>
+<title>마감 직전 기사</title>
+<link>https://news.google.com/rss/articles/E1</link>
+<pubDate>Tue, 10 Nov 2026 14:59:59 GMT</pubDate>
+<source url="https://a.example">A</source>
+</item>
+<item>
+<title>자정 기사</title>
+<link>https://news.google.com/rss/articles/E2</link>
+<pubDate>Tue, 10 Nov 2026 15:00:00 GMT</pubDate>
+<source url="https://b.example">B</source>
+</item>
+</channel>
+</rss>

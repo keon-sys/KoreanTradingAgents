@@ -1,0 +1,6 @@
+{
+ "_error_code": "CD006",
+ "_error_message": "아이디 또는 비밀번호가 일치하지 않습니다.",
+ "loginErrCnt": 1,
+ "loginErrMaxCnt": 5
+}

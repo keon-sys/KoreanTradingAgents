@@ -1,0 +1,41 @@
+{
+ "output": [
+  {
+   "TRD_DD": "2026/11/06",
+   "TDD_CLSPRC": "98,500",
+   "FLUC_TP_CD": "1",
+   "CMPPREVDD_PRC": "1,200",
+   "FLUC_RT": "1.23",
+   "LIST_SHRS": "5,919,637,922",
+   "FORN_HD_QTY": "2,987,654,321",
+   "FORN_SHR_RT": "50.47",
+   "FORN_ORD_LMT_QTY": "5,919,637,922",
+   "FORN_LMT_EXHST_RT": "50.47"
+  },
+  {
+   "TRD_DD": "2026/11/05",
+   "TDD_CLSPRC": "97,300",
+   "FLUC_TP_CD": "2",
+   "CMPPREVDD_PRC": "-800",
+   "FLUC_RT": "-0.82",
+   "LIST_SHRS": "5,919,637,922",
+   "FORN_HD_QTY": "2,991,000,000",
+   "FORN_SHR_RT": "50.53",
+   "FORN_ORD_LMT_QTY": "5,919,637,922",
+   "FORN_LMT_EXHST_RT": "50.53"
+  },
+  {
+   "TRD_DD": "2026/11/04",
+   "TDD_CLSPRC": "98,100",
+   "FLUC_TP_CD": "3",
+   "CMPPREVDD_PRC": "0",
+   "FLUC_RT": "0.00",
+   "LIST_SHRS": "5,919,637,922",
+   "FORN_HD_QTY": "2,985,100,000",
+   "FORN_SHR_RT": "50.43",
+   "FORN_ORD_LMT_QTY": "5,919,637,922",
+   "FORN_LMT_EXHST_RT": "50.43"
+  }
+ ],
+ "CURRENT_DATETIME": "2026.11.06 PM 06:00:00"
+}

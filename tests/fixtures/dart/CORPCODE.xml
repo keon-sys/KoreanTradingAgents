@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result>
+    <list>
+        <corp_code>00126380</corp_code>
+        <corp_name>삼성전자</corp_name>
+        <corp_eng_name>SAMSUNG ELECTRONICS CO,.LTD</corp_eng_name>
+        <stock_code>005930</stock_code>
+        <modify_date>20250102</modify_date>
+    </list>
+    <list>
+        <corp_code>00258801</corp_code>
+        <corp_name>카카오</corp_name>
+        <corp_eng_name>Kakao Corp.</corp_eng_name>
+        <stock_code>035720</stock_code>
+        <modify_date>20250102</modify_date>
+    </list>
+    <list>
+        <corp_code>00434003</corp_code>
+        <corp_name>다트비상장</corp_name>
+        <corp_eng_name>Unlisted Co.</corp_eng_name>
+        <stock_code> </stock_code>
+        <modify_date>20170630</modify_date>
+    </list>
+</result>
